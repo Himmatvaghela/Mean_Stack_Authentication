@@ -1,0 +1,44 @@
+
+<div class="container">
+    <div class="form_box">
+        <h1 class="heading1">Register</h1>
+        <form [formGroup]="signUp" (submit)="signUpUser()">
+            <div class="input_box" >
+                <input type="text" placeholder="Name" formControlName="name">
+                <div class="error-box" *ngIf="signUp.get('name')?. invalid && signUp.get('name')?.touched">
+                    <span *ngIf="signUp.get('name')?.errors?.['required']">This Field is Required</span>
+                </div>
+
+            </div>
+            <div class="input_box">
+                <input type="text" placeholder="Job" formControlName="job">
+                <div class="error-box" *ngIf="signUp.get('job')?. invalid && signUp.get('job')?.touched">
+                    <span *ngIf="signUp.get('job')?.errors?.['required']">This Field is Required</span>
+                </div>
+            </div>
+            <div class="input_box">
+                <input type="email" placeholder="Email" formControlName="email">
+
+                <div class="error-box" *ngIf="signUp.get('email')?.invalid && signUp.get('email')?.touched">
+                    <span *ngIf="signUp.get('email')?.errors?.['required']">This Field is Required</span>
+                    <span *ngIf="signUp.get('email')?.errors?.['email']">This is not valid email</span>
+                </div>
+            </div>
+            <div class="input_box">
+                <input type="password" placeholder="Password" formControlName="password">
+
+                <div class="error-box" *ngIf="signUp.get('password')?. invalid && signUp.get('password')?.touched">
+                    <span *ngIf="signUp.get('password')?.errors?.['required']">This Field is Required</span>
+                    <span *ngIf="signUp.get('password')?.errors?.['minlength']">Password length must be atleast 2</span>
+                </div>
+            </div>
+            <div class="input_box">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="login_visit">
+            <p>Click here to </p>
+            <a routerLink="/login">Login</a>
+        </div>
+    </div>
+</div>

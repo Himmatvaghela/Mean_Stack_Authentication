@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="form_box">
+        <h1 class="heading1">Login</h1>
+        <form [formGroup]="signIn" (submit)="signInUser()">
+            <div class="input_box">
+                <input type="email" placeholder="Email" formControlName="email">
+
+                <div class="error-box" *ngIf="signIn.get('email')?.invalid && signIn.get('email')?.touched">
+                    <span *ngIf="signIn.get('email')?.errors?.['required']">This Field is Required</span>
+                    <span *ngIf="signIn.get('email')?.errors?.['email']">This is not valid email</span>
+                </div>
+            </div>
+            <div class="input_box">
+                <input type="password" placeholder="Password" formControlName="password">
+
+                <div class="error-box" *ngIf="signIn.get('password')?. invalid && signIn.get('password')?.touched">
+                    <span *ngIf="signIn.get('password')?.errors?.['required']">This Field is Required</span>
+                    <span *ngIf="signIn.get('password')?.errors?.['minlength']">Password length must be atleast 2</span>
+                </div>
+            </div>
+            <div class="input_box">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="register_visit">
+            <p>Click here to </p>
+            <a routerLink="/register">Register</a>
+        </div>
+    </div>
+</div>

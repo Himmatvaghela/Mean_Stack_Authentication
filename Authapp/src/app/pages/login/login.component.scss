@@ -1,0 +1,94 @@
+
+.container{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form_box{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+        padding: 4rem 3rem;
+        border-radius: 5px;
+        grid-gap: 2rem;
+
+        .heading1{
+            font-size: 50px;
+            color: red;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        
+        form{
+            grid-gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            
+            .input_box{
+                display: flex;
+                flex-direction: column;
+                grid-gap: 0.7rem;
+                width: 100%;
+
+                input{
+                    padding: 0.9rem 1.5rem;
+                    outline: none;
+                    color: red;
+                    font-size: 1.6rem;
+                    border-radius: 5px;
+                    background-color: black;
+                    border: 1px solid red;
+                }
+
+                .ng-touched.ng-invalid{
+                    border: 1px solid white;
+                }
+
+                .error-box{
+
+                    span{
+                        color: white;
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+            button{
+                width: 100%;
+                padding: 0.5rem;
+                font-size: 22px;
+                border: 1px solid red;
+                border-radius: 5px;
+                color: red;
+                background-color: black;
+
+                &:hover{
+                    background-color: red;
+                    color: black;
+                }
+            }
+        }
+
+        .register_visit{
+            display: flex;
+            align-items: center;
+            font-size: 1.6rem;
+
+            p{
+                color: white;
+                margin-right: 5px;
+            }
+            a{
+                color: red;
+                text-decoration: none;
+            }
+        }
+
+    }
+}
