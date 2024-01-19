@@ -27,7 +27,7 @@ export const register =async (req,res)=>{
 
         const savedUser= await user.save()
         delete savedUser.password
-        const token=Jwt.sign({savedUser},process.env.SECRET_KEY)
+        const token=Jwt.sign({id:savedUser._id},process.env.SECRET_KEY)
         res.status(201).json({token})
     } catch (error) {
         res.status(500).json({error: error.message})
@@ -35,5 +35,18 @@ export const register =async (req,res)=>{
 }
 
 export const login =async(req,res)=>{
+    try{
+        const {email,password}=req.body;
+        const user= await User.findOne({email:email});
+        if(!user) return res.status(400).json({msg:"User does not exist"})
 
+        const isMatch = await bcrypt.compare(password,user.password);
+        if(!isMatch) return res.status(400).json({msg: "Invalid Credentials"})
+
+        const token = Jwt.sign({id:user._id},process.env.SECRET_KEY)
+        delete user.password;
+        res.status(200).json({token});
+    }catch(err){
+        res.status(500).json({error :err.message})
+    }
 }
