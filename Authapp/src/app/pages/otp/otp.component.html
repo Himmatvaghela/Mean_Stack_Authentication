@@ -1,0 +1,19 @@
+
+<div class="otp_container">
+    <div class="form_box">
+        <h1 class="heading1">Enter OTP Sent To Email</h1>
+        <form [formGroup]="otpVal" (ngSubmit)="otpSubmit()">
+            <div formArrayName="formarr">
+                <div class="row" >
+                    <div class="input_box" *ngFor="let control of formarr.controls; let i =index" >
+                        <input type="text" [formControl]="getFormControl(i)" [attr.id]="'input-' + i" #inp (keyup)="goToNextInput($event,i,inp.value)" (keydown)="goToPreviousInput($event,i,inp.value)" (click)="handleClick($event,i)" appNumericInput>
+                    </div>
+                </div>
+                <div class="btn_box">
+                    <button type="submit" [disabled]="!dissableBtn" [ngClass]="{disabled: !dissableBtn}">Submit</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -9,13 +9,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { OTPComponent } from './pages/otp/otp.component';
+import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
+import { NumericInputDirective } from './directives/numeric-input.directive';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    OTPComponent,
+    ForgetPasswordComponent,
+    NumericInputDirective,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

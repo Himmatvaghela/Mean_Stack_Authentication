@@ -1,0 +1,90 @@
+
+.otp_container{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form_box{
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+        padding: 4rem 3rem;
+        border-radius: 5px;
+        grid-gap: 2rem;
+
+        .heading1{
+            font-size: 30px;
+            color: red;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        
+        form{
+            grid-gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .row{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-column-gap: 4rem;
+                padding: 0 5rem;
+
+                input{
+                    padding: 1.5rem 1.7rem;
+                    width: 100%;
+                    font-size: 3.8rem;
+                    height: 5.8rem;
+                    text-align: center;
+                    border-radius: 5px;
+                    border: 1px solid red;
+                    background-color: black;
+                    color: red;
+                }
+            }
+            .btn_box{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 3rem;
+                button{
+                    // width: 100%;
+                    padding: 0.7rem 2rem;
+                    font-size: 22px;
+                    border: 1px solid red;
+                    border-radius: 5px;
+                    color: black;
+                    background-color: red;
+                    font-weight: 500;
+        
+                    &:hover{
+                        background-color: red;
+                        color: black;
+                        font-size: 24px;
+                        font-weight: 700;
+                    }
+                }
+                .disabled{
+                    color: black;
+                    background-color: #e54a4a;
+
+                    &:hover{
+                        color: black;
+                        background-color: #e54a4a;
+                        font-size: 22px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+
+
+    }
+}
