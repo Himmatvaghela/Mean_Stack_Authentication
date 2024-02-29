@@ -180,7 +180,6 @@ export const changePassword= async(req,res)=>{
         // Respond with success
         res.status(200).json({ success: true, message: 'Password updated successfully' });
     } catch (error) {
-        console.error('Error updating password:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 }

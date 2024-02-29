@@ -31,6 +31,7 @@ export class ChangePasswordComponent implements OnInit {
     .subscribe((res)=>{
       console.log(res)
       localStorage.removeItem('email')
+      localStorage.removeItem('userVerifiedForPasswordUpdate')
       this.route.navigate(['/login'])
     },(error)=>{
       console.log(error)

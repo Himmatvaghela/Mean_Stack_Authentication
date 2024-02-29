@@ -1,18 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { loginUser } from '../../interface/auth';
 import { Router } from '@angular/router';
+import { LoggerService } from '../../services/logger.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  constructor(private auth:AuthService,private route:Router){
+  constructor(
+    private auth:AuthService,
+    private route:Router,
+    private logger:LoggerService
+    ){
 
+  }
+  ngOnInit(): void {
+    if(localStorage.getItem('token')){
+      this.route.navigate(['/'])
+    }
   }
 
   signIn= new FormGroup({
@@ -26,7 +36,8 @@ export class LoginComponent {
         localStorage.setItem('token',val.token)
         this.route.navigate(['/'])
       },(error)=>{
-        alert(error.error.msg)
+        // alert(error.error.msg)
+        this.logger.logError(error)
       })
       this.signIn.reset()
 

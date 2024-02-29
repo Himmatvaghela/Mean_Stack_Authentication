@@ -13,6 +13,7 @@ import { OTPComponent } from './pages/otp/otp.component';
 import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
 import { NumericInputDirective } from './directives/numeric-input.directive';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,11 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+    })
   ],
   providers: [
     AuthGuard
